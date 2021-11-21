@@ -11,9 +11,12 @@ const Home = () => {
     try {
       let response = await fetch(`http://localhost:3001/products/`);
       let products = await response.json();
-      setProductsArray(products);
+      
+      setProductsArray([products]);
+        console.log(products)
       setLoading(false);
-      return products;
+    return products;
+      
     } catch (error) {
       console.log(error);
     }
@@ -34,7 +37,7 @@ const Home = () => {
                 <Card.Img variant="top" src={product.imageUrl} />
                 <Card.Body>
                   <Card.Title>
-                    {product.brand.toUpperCase()} {product.name}
+                    {product.brand} {product.name}
                   </Card.Title>
                 </Card.Body>
                 <Card.Footer>{product.price}</Card.Footer>
