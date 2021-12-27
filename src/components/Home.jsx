@@ -9,11 +9,12 @@ const Home = () => {
 
   const fetchProducts = async () => {
     try {
-      let response = await fetch(`http://localhost:3001/products/`);
+      let response = await fetch(`http://localhost:3001/products`);
       let products = await response.json();
       
-      setProductsArray([products]);
-        console.log(products)
+      setProductsArray(products.products);
+        console.log("products",products)
+        console.log("productsArray",productsArray)
       setLoading(false);
     return products;
       
